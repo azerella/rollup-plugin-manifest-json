@@ -1,0 +1,40 @@
+{
+  "name": "rollup-plugin-manifest-json",
+  "version": "0.1.0",
+  "description": "Rollup plugin to generate a manifest.json file used to tell the browser about your web app.",
+  "main": "cjs-here",
+  "jsnext:main": "lib/rollup-plugin-manifest-json.es.js",
+  "scripts": {
+    "test": "rollup -c",
+    "build": "tsc && npm run build:js",
+    "build:js": "babel lib/plugin.js --out-file lib/rollup-plugin-manifest-json.es.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adamzerella/rollup-plugin-manifest-json.git"
+  },
+  "keywords": [
+    "rollup-plugin",
+    "plugin",
+    "manifest.json",
+    "manifest",
+    "pwa"
+  ],
+  "author": "Adam Zerella <hi@adamzerella.com> (https://adamzerella.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adamzerella/rollup-plugin-manifest-json/issues"
+  },
+  "homepage": "https://github.com/adamzerella/rollup-plugin-manifest-json#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
+    "@types/node": "^12.12.11",
+    "rollup": "^1.27.3",
+    "typescript": "^3.7.2"
+  },
+  "files": [
+    "lib/rollup-plugin-manifest-json.es.js"
+  ]
+}

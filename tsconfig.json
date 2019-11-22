@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "esnext",
+        "strict": true,
+        "moduleResolution": "node",
+        "outDir": "lib/",
+    },
+    "files": [
+        "src/plugin.ts",
+        "node_modules/rollup/dist/rollup.d.ts"
+    ]
+}
