@@ -5,9 +5,11 @@
         "strict": true,
         "moduleResolution": "node",
         "outDir": "lib/",
+        "sourceMap": false
     },
     "files": [
-        "src/plugin.ts",
+        "index.ts",
+        "index.d.ts",
         "node_modules/rollup/dist/rollup.d.ts"
     ]
 }

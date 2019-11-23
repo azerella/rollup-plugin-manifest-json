@@ -1,20 +1,21 @@
-import manifestPlugin from "./lib/plugin";
+import babel from "rollup-plugin-babel";
+import typescript from "rollup-plugin-typescript2";
+import { terser } from "rollup-plugin-terser";
 
 export default{
-    input: "test/input.js",
-    output: {
-        format: "esm",
-        dir: "dist"
-    },
+    input: "index.ts",
+    output: [
+        { file: "lib/rollup-plugin-manifest-json.cjs.js", format: "cjs" },
+        { file: "lib/rollup-plugin-manifest-json.es.js", format: "esm" }
+    ],
     plugins: [
-        manifestPlugin({
-            input: "test/mock.manifest.json",
-            minify: false,
-            manifest: {
-                name: "replaced",
-                short_name: "abs",
-                display: "asd"
-            }
-        })
-    ]
+        typescript(),
+        babel({
+            presets: [
+                "@babel/preset-env"
+            ]
+        }),
+        terser()
+    ],
+    external: [ "fs" ]
 }
