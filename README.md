@@ -1,5 +1,7 @@
 # rollup-plugin-manifest-json
 
+[![Build Status](https://travis-ci.org/adamzerella/rollup-plugin-manifest-json.svg?branch=master)](https://travis-ci.org/adamzerella/rollup-plugin-manifest-json)
+
 > Rollup plugin to generate a manifest.json file used to tell the browser about your web app.
 
 ## Install
