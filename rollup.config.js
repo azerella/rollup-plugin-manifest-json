@@ -3,7 +3,7 @@ import typescript from "rollup-plugin-typescript2";
 import { terser } from "rollup-plugin-terser";
 
 export default{
-    input: "index.ts",
+    input: "src/index.ts",
     output: [
         { file: "lib/rollup-plugin-manifest-json.cjs.js", format: "cjs" },
         { file: "lib/rollup-plugin-manifest-json.es.js", format: "esm" }
@@ -17,5 +17,5 @@ export default{
         }),
         terser()
     ],
-    external: [ "fs" ]
+    external: [ "fs", "path" ]
 }
