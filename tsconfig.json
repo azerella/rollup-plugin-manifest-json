@@ -8,8 +8,8 @@
         "sourceMap": false
     },
     "files": [
-        "index.ts",
-        "index.d.ts",
+        "src/index.ts",
+        "src/index.d.ts",
         "node_modules/rollup/dist/rollup.d.ts"
     ]
 }
