@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-manifest-json",
-  "version": "0.1.0",
+  "version": "1.1.0",
   "description": "Rollup plugin to generate a manifest.json file used to tell the browser about your web app.",
   "main": "lib/rollup-plugin-manifest-json.cjs.js",
   "module": "lib/rollup-plugin-manifest-json.es.js",
@@ -31,6 +31,7 @@
     "@babel/preset-env": "^7.7.1",
     "@types/node": "^12.12.11",
     "mocha": "^6.2.2",
+    "rimraf": "^3.0.0",
     "rollup": "^1.27.3",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-terser": "^5.1.2",
@@ -40,7 +41,7 @@
   "files": [
     "lib/rollup-plugin-manifest-json.es.js",
     "lib/rollup-plugin-manifest-json.cjs.js",
-    "index.d.ts"
+    "src/index.d.ts"
   ],
   "types": "index.d.ts"
 }
