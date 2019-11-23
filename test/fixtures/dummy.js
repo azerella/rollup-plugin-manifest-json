@@ -1,0 +1,1 @@
+console.log(`dummy js input for rollup`);
