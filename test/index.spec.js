@@ -112,9 +112,9 @@ describe(`rollup-plugin-manifest-json`, () => {
             orientation: "portrait",
             icons: [
                 {
-                  "src": "out/assets/icon.png",
-                  "type": "image/png",
-                  "sizes": "192x192"
+                  src: "out/assets/icon.png",
+                  type: "image/png",
+                  sizes: "192x192"
                 }
             ]
         });
