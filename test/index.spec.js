@@ -9,7 +9,7 @@ const manifestJson = require("../lib/rollup-plugin-manifest-json.cjs");
 
 describe(`rollup-plugin-manifest-json`, () => {
 
-    after(async () => await rimraf.sync(`./out/`));
+    // after(async () => await rimraf.sync(`./out/`));
 
     it(`should preserve existing manifest options.`, async () => {
         await rollIt({
@@ -95,6 +95,28 @@ describe(`rollup-plugin-manifest-json`, () => {
                 48: "icon.png",
                 96: "icon@2x.png"
             }
+        });
+    });
+
+    it(`should find assets that are used in the manifest file`, async () => {
+        await rollIt({
+            input: resolve(`./test/fixtures/dummy-manifest-assets.json`),
+            minify: false
+        })
+
+        let fixtureOutput = await readFile(resolve(`out/manifest.json`), `utf-8`);
+
+        return await assert.deepStrictEqual(JSON.parse(fixtureOutput), {
+            name: "my-app",
+            short_name: "my-app-name",
+            orientation: "portrait",
+            icons: [
+                {
+                  "src": "out/assets/icon.png",
+                  "type": "image/png",
+                  "sizes": "192x192"
+                }
+            ]
         });
     });
 });

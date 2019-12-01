@@ -1,0 +1,12 @@
+{
+    "name": "my-app",
+    "short_name": "my-app-name",
+    "orientation": "portrait",
+    "icons": [
+        {
+          "src": "assets/icon.png",
+          "type": "image/png",
+          "sizes": "192x192"
+        }
+    ]
+}
