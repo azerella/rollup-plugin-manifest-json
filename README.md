@@ -7,7 +7,7 @@
 ## Install
 
 ```
-npm i rollup-plugin-manifest-json
+npm i --save-dev rollup-plugin-manifest-json
 ```
 
 ## Usage
