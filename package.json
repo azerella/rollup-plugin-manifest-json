@@ -42,7 +42,7 @@
   "files": [
     "lib/rollup-plugin-manifest-json.es.js",
     "lib/rollup-plugin-manifest-json.cjs.js",
-    "src/index.d.ts"
+    "lib/index.d.ts"
   ],
-  "types": "index.d.ts"
+  "types": "lib/index.d.ts"
 }

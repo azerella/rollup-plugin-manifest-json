@@ -5,7 +5,9 @@
         "strict": true,
         "moduleResolution": "node",
         "outDir": "lib/",
-        "sourceMap": false
+        "sourceMap": false,
+        "declarationDir": "lib/",
+        "declaration": true,
     },
     "files": [
         "src/index.ts",
