@@ -1,6 +1,7 @@
 # rollup-plugin-manifest-json
 
 [![Build Status](https://travis-ci.org/adamzerella/rollup-plugin-manifest-json.svg?branch=master)](https://travis-ci.org/adamzerella/rollup-plugin-manifest-json)
+[![Coverage Status](https://coveralls.io/repos/github/adamzerella/rollup-plugin-manifest-json/badge.svg?branch=master)](https://coveralls.io/github/adamzerella/rollup-plugin-manifest-json?branch=master)
 
 > Rollup plugin to generate a manifest.json file used to tell the browser about your web app.
 
