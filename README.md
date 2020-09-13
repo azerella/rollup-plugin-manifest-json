@@ -49,7 +49,7 @@ Type: `boolean`
 
 Default: `false`
 
-Whether or not to mangle the output file, it's reccomended to minify the file as it will reduce the file size.
+Whether or not to mangle the output file, it's recommended to minify the file as it will reduce the file size.
 
 ### manifest
 
