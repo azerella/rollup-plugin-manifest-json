@@ -66,4 +66,5 @@ Don't be scared to raise an issue or a pull request! Any contributions, no matte
 
 <div style="display:inline;">
   <a href="https://github.com/adamzerella"><img width="48" height="48" src="https://avatars0.githubusercontent.com/u/1501560?s=460&v=4" alt="Adam Zerella"/></a>
+  <a href="https://github.com/benmccann"><img width="48" height="48" src="https://avatars1.githubusercontent.com/u/322311?s=460&u=4303e3b2c87b6eab07d258faf5090deedef4550b&v=4" alt="Ben McCann"/></a>
 </div>
