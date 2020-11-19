@@ -1,5 +1,5 @@
 import { readFileSync } from "fs";
-import { resolve } from "path";
+import { resolve, normalize } from "path";
 
 import { Plugin } from "rollup";
 import { PluginOptions, ManifestOptions } from "./index.d";
@@ -8,19 +8,21 @@ export default function manifestJson(opts: PluginOptions): Plugin  {
     return {
         name: "manifest-json",
         buildStart() {
-            if (opts.input == undefined) {
-                throw new Error(`...Looks like you didn't specify an input file chief`);
-            }
+          const { input, manifest, minify, output } = opts;
 
-            let manifestData: ManifestOptions = JSON.parse(readFileSync(resolve(opts.input), `utf-8`));
+          if (!input) {
+              throw new Error('Is the `input` option set to something?');
+          }
 
-            Object.assign(manifestData, opts.manifest);
+          const manifestData: ManifestOptions = JSON.parse(readFileSync(resolve(input), `utf-8`));
 
-            this.emitFile({
-                type: "asset",
-                source: opts.minify ? JSON.stringify(manifestData) : JSON.stringify(manifestData, null, 2),
-                fileName: "manifest.json",
-            })
+          Object.assign(manifestData, manifest);
+
+          this.emitFile({
+              type: "asset",
+              source: minify ? JSON.stringify(manifestData) : JSON.stringify(manifestData, null, 2),
+              fileName: output ? normalize(`${output}/manifest.json`) : 'manifest.json',
+          });
         }
     }
 }

@@ -42,7 +42,12 @@ export interface ManifestOptions {
 }
 
 export interface PluginOptions {
-    input: string,
-    minify?: boolean,
-    manifest?: ManifestOptions
+  /** File path to your `manifest.json` file. */
+  input: string,
+  /** Whether or not to mangle the outputted manifest. */
+  minify?: boolean,
+  /** Directory to store the manifest file in. */
+  output?: string,
+  /** Manifest options */
+  manifest?: ManifestOptions
 }

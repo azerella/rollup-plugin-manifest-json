@@ -1,6 +1,7 @@
 const assert = require("assert");
+const { existsSync } = require('fs');
 const { readFile } = require("fs").promises;
-const { resolve } = require("path");
+const { resolve, normalize, } = require("path");
 
 const rimraf = require("rimraf");
 const { rollup } = require("rollup");
@@ -11,9 +12,20 @@ describe(`rollup-plugin-manifest-json`, () => {
 
     after(async () => await rimraf.sync(`./out/`));
 
+    it(`should throw a 'PLUGIN_ERROR' if an input file is not spplied`, async () => {
+      try {
+        await rollIt({
+            input: undefined
+        });
+        assert.fail();
+      } catch (err) {
+        assert.strictEqual(err.code, 'PLUGIN_ERROR');
+      }
+    });
+
     it(`should preserve existing manifest options.`, async () => {
         await rollIt({
-            input: resolve(`./test/fixtures/dummy-manifest.json`)
+            input: normalize(`./test/fixtures/dummy-manifest.json`)
         });
 
         let fixtureOutput = JSON.parse(await readFile(resolve(`out/manifest.json`), `utf-8`));
@@ -60,7 +72,7 @@ describe(`rollup-plugin-manifest-json`, () => {
 
     it(`shouldn't minify output when passed the 'minify: false' flag`, async () => {
         await rollIt({
-            input: resolve(`./test/fixtures/dummy-manifest.json`),
+            input: normalize(`./test/fixtures/dummy-manifest.json`),
             minify: false
         })
 
@@ -75,7 +87,7 @@ describe(`rollup-plugin-manifest-json`, () => {
 
     it(`should handle assigning deep key values`, async () => {
         await rollIt({
-            input: resolve(`./test/fixtures/dummy-manifest.json`),
+            input: normalize(`./test/fixtures/dummy-manifest.json`),
             minify: false,
             manifest: {
                 icons: {
@@ -85,7 +97,7 @@ describe(`rollup-plugin-manifest-json`, () => {
             }
         })
 
-        let fixtureOutput = await readFile(resolve(`out/manifest.json`), `utf-8`);
+        let fixtureOutput = await readFile(normalize(`out/manifest.json`), `utf-8`);
 
         return await assert.deepStrictEqual(JSON.parse(fixtureOutput), {
             name: "my-app",
@@ -97,6 +109,17 @@ describe(`rollup-plugin-manifest-json`, () => {
             }
         });
     });
+
+    it(`should emit a manifest file in output directory 'public/'`, async () => {
+      await rollIt({
+          input: normalize(`./test/fixtures/dummy-manifest.json`),
+          output: 'public',
+      })
+
+      const fileExists = existsSync(normalize('out/public/manifest.json'));
+
+      assert.ok(fileExists);
+  });
 });
 
 async function rollIt(manifestOpts = {}) {
