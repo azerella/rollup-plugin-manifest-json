@@ -60,6 +60,16 @@ Default: `{}`
 
 The key values you wish to add or modify to the existing `manifest.json` file. For a full list of key values to use [see here.](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json)
 
+### output
+
+_Optional_
+
+Type: `string`
+
+Default: `manifest.json`
+
+Unique output directory to write the manifest file to, useful for building your app outside of the root rollup folder.
+
 ## Contributors
 
 Don't be scared to raise an issue or a pull request! Any contributions, no matter how big or small will land your picture here and be greatly appreciated ❤️

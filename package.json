@@ -3,8 +3,6 @@
   "version": "1.4.2",
   "description": "Rollup plugin to generate a manifest.json file used to tell the browser about your web app.",
   "main": "lib/rollup-plugin-manifest-json.cjs.js",
-  "module": "lib/rollup-plugin-manifest-json.es.js",
-  "jsnext:main": "lib/rollup-plugin-manifest-json.es.js",
   "scripts": {
     "test": "mocha",
     "pretest": "npm run build",
@@ -40,7 +38,6 @@
     "typescript": "^4.0.2"
   },
   "files": [
-    "lib/rollup-plugin-manifest-json.es.js",
     "lib/rollup-plugin-manifest-json.cjs.js",
     "lib/index.d.ts"
   ],

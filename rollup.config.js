@@ -4,10 +4,10 @@ import { terser } from "rollup-plugin-terser";
 
 export default{
     input: "src/index.ts",
-    output: [
-        { file: "lib/rollup-plugin-manifest-json.cjs.js", format: "cjs" },
-        { file: "lib/rollup-plugin-manifest-json.es.js", format: "esm" }
-    ],
+    output: {
+      file: "lib/rollup-plugin-manifest-json.cjs.js",
+      format: "cjs"
+    },
     plugins: [
         typescript(),
         babel({
