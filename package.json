@@ -39,7 +39,9 @@
   },
   "files": [
     "lib/rollup-plugin-manifest-json.cjs.js",
-    "lib/index.d.ts"
+    "lib/types.d.ts",
+    "lib/plugin.d.ts"
   ],
-  "types": "lib/index.d.ts"
+  "types": "lib/plugin.d.ts",
+  "type": "commonjs"
 }
