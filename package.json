@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-manifest-json",
-  "version": "1.5.1",
+  "version": "1.6.0",
   "description": "Rollup plugin to generate a manifest.json file used to tell the browser about your web app.",
   "main": "lib/rollup-plugin-manifest-json.cjs.js",
   "scripts": {
