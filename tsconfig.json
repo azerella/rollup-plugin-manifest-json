@@ -1,17 +1,13 @@
 {
-    "compilerOptions": {
-        "target": "es2017",
-        "module": "esnext",
-        "strict": true,
-        "moduleResolution": "node",
-        "outDir": "lib/",
-        "sourceMap": false,
-        "declarationDir": "lib/",
-        "declaration": true,
-    },
-    "files": [
-        "src/index.ts",
-        "src/index.d.ts",
-        "node_modules/rollup/dist/rollup.d.ts"
-    ]
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true,
+    "moduleResolution": "node",
+    "outDir": "lib/",
+    "sourceMap": false,
+    "declarationDir": "lib/",
+    "declaration": true
+  },
+  "files": ["src/plugin.ts", "src/types.ts"]
 }
