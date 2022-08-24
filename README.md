@@ -1,30 +1,35 @@
 # rollup-plugin-manifest-json
 
-[![Build Status](https://travis-ci.org/adamzerella/rollup-plugin-manifest-json.svg?branch=master)](https://travis-ci.org/adamzerella/rollup-plugin-manifest-json)
-[![Coverage Status](https://coveralls.io/repos/github/adamzerella/rollup-plugin-manifest-json/badge.svg?branch=master)](https://coveralls.io/github/adamzerella/rollup-plugin-manifest-json?branch=master)
-![NPM Version][npm-version-badge]
+[![CI](https://github.com/azerella/rollup-plugin-manifest-json/actions/workflows/CI.yml/badge.svg)](https://github.com/azerella/rollup-plugin-manifest-json/actions/workflows/CI.yml)
 
-> Rollup plugin to generate a manifest.json file used to tell the browser about your web app.
+
+Rollup plugin that generates a [web application manifest](https://w3c.github.io/manifest/#using-a-link-element-to-link-to-a-manifest) file. This file contains the startup parameters and application defaults when a web application is launched.
 
 ## Install
 
-```
+```sh
+# NPM
 npm i --save-dev rollup-plugin-manifest-json
+
+# Yarn
+yarn add -D rollup-plugin-manifest-json
 ```
 
 ## Usage
 
 ```js
-import manifestJson from "rollup-plugin-manifest-json";
+import manifestJSON from "rollup-plugin-manifest-json";
 
 export default {
     input: "main.js",
     plugins: [
-        manifestJson({
+        ...
+        manifestJSON({
             input: "public/manifest.json", // Required
-            minify: true,
+            // minify: true
+            // output: "public/manifest.webmanifest"
             manifest: {
-                short_name: "custom-short-name"
+                short_name: "different-short-name"
             }
         })
     ]
@@ -41,7 +46,7 @@ Type: `string`
 
 Default: `""`
 
-The `manifest.json` file location  that will be modified and copied into the Rollup build directory.
+The web application manifest file location that will be either cloned or modified and moved into the Rollup build directory.
 
 ### minify
 
@@ -49,17 +54,19 @@ _Optional_
 
 Type: `boolean`
 
-Default: `false`
+Default: `true`
 
 Whether or not to mangle the output file, it's recommended to minify the file as it will reduce the file size.
 
 ### manifest
 
+_Optional_
+
 Type: `object`
 
 Default: `{}`
 
-The key values you wish to add or modify to the existing `manifest.json` file. For a full list of key values to use [see here.](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json)
+The key values you wish to add or modify given the existing web application manifest file. For a full list of key values to use [see here.](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json)
 
 ### output
 
@@ -67,13 +74,15 @@ _Optional_
 
 Type: `string`
 
-Default: `manifest.json`
+Default: `public/manifest.json`
 
-Unique output directory to write the manifest file to, useful for building your app outside of the root rollup folder.
+Output directory to write the manifest file to, useful for building your app outside of the root rollup folder.
 
 ## Contributors
 
-Don't be scared to raise an issue or a pull request! Any contributions, no matter how big or small will land your picture here and be greatly appreciated ❤️
+Don't be scared to raise an issue or a pull request! 
+
+Any contributions, no matter how big or small will land your picture here and be greatly appreciated ❤️
 
 <div style="display:inline;">
   <a href="https://github.com/adamzerella"><img width="48" height="48" src="https://avatars0.githubusercontent.com/u/1501560?s=460&v=4" alt="Adam Zerella"/></a>
